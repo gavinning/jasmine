@@ -14,7 +14,9 @@
     "jade": "~1.11.0",
     "morgan": "~1.6.1",
     "multer": "^0.1.8",
+    "nedb": "^1.5.1",
     "serve-favicon": "~2.3.0",
+    "thenjs": "^2.0.2",
     "vpm-config": "^1.2.0"
   }
 }

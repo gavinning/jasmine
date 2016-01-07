@@ -15,7 +15,9 @@ var app = express();
 app.__dirname = __dirname;
 // 加密算法
 app.crypto = require('./lib/crypto');
+app.db = require('./db/db');
 app.app = {};
+app.express = express;
 root.app = app;
 root.system = app;
 
@@ -27,7 +29,7 @@ app.set('view engine', 'jade');
 // 配置初始化
 config.init();
 // 子app默认路由设置
-config.set('app.route', '/app');
+config.set('app.route', '/g');
 // 子app默认静态路径设置
 config.set('app.static', '/static');
 // 子app默认配置文件设置
@@ -78,5 +80,13 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+// 监听全局错误，阻止程序崩溃
+// process.on('uncaughtException', function (err) {
+//   //打印出错误
+//   console.log(err);
+//   //打印出错误的调用栈方便调试
+//   console.log(err.stack);
+// });
 
 module.exports = app;

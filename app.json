@@ -1,8 +1,12 @@
 {
     "apps": [
         {
+            "name": "user",
+            "path": "/Users/gavinning/Documents/lab/services/user"
+        },
+        {
             "name": "aimee",
-            "path": "/Users/gavinning/Documents/lab/github/vpm-server"
+            "path": "/Users/gavinning/Documents/lab/services/aimee"
         },
         {
             "name": "ilinco",
