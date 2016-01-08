@@ -9,6 +9,10 @@
             "path": "/Users/gavinning/Documents/lab/services/aimee"
         },
         {
+            "name": "sage",
+            "path": "/Users/gavinning/Documents/lab/services/sage"
+        },
+        {
             "name": "ilinco",
             "home": true,
             "path": "/Users/gavinning/Documents/lab/ilinco"
