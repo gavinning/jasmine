@@ -21,7 +21,8 @@ app.express = express;
 root.app = app;
 root.system = app;
 
-
+// 设置为生产环境
+app.set('env', 'production');
 // 模板路径设置
 app.set('views', path.join(__dirname, 'views'));
 // 模板引擎设置
