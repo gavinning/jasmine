@@ -5,10 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var lessMiddleware = require('less-middleware');
 var config = require('vpm-config');
 var sup = require('./lib/app');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var md = require('./lib/md');
 var app = express();
 
 // 缓存System路径
@@ -27,6 +29,11 @@ app.set('env', 'production');
 app.set('views', path.join(__dirname, 'views'));
 // 模板引擎设置
 app.set('view engine', 'jade');
+// Markdown views
+system.set('md views', path.join(__dirname, 'views/md'));
+// Markdown layout dir
+system.set('md layout', path.join(__dirname, 'views/md/index.jade'));
+
 // 配置初始化
 config.init();
 // 子app默认路由设置
@@ -44,7 +51,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // 格式化form-data数据
 app.use(multer({dest: '/tmp/server-upload'})); // for parsing multipart/form-data
 app.use(cookieParser('LDkdsSAlf4dFGS5'));
+app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+// User md
+app.use(md);
 
 // router
 sup(app).auto();
