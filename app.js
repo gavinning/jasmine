@@ -41,7 +41,7 @@ config.set('app.route', '/g');
 // 子app默认静态路径设置
 config.set('app.static', '/static');
 // 子app默认配置文件设置
-config.set('app.config', path.join(__dirname, 'app.json'));
+config.set('app.config', path.join(__dirname, '../app.json'));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
