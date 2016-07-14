@@ -97,13 +97,13 @@ api.stream = function(req, res){
     }
 };
 
-// 发布接口
-router.post('/deploy', api.deploy);
-
-// 上传api
-router.post('/stream', function(req, res){
-    req.query.deploy ? api.deploy(req, res) : api.stream(req, res);
-});
+// // 发布接口
+// router.post('/deploy', api.deploy);
+//
+// // 上传api
+// router.post('/stream', function(req, res){
+//     req.query.deploy ? api.deploy(req, res) : api.stream(req, res);
+// });
 
 router.get('/test', function(req, res){
     res.send('123')

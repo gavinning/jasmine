@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var multer = require('multer');
 var lessMiddleware = require('less-middleware');
 var config = require('vpm-config');
 var sup = require('./lib/app');
@@ -20,8 +19,8 @@ app.crypto = require('./lib/crypto');
 app.db = require('./db/db');
 app.app = {};
 app.express = express;
-root.app = app;
-root.system = app;
+global.app = app;
+global.system = app;
 
 // 设置为生产环境
 app.set('env', 'production');
@@ -48,8 +47,6 @@ config.set('app.config', path.join(__dirname, '../app.json'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// 格式化form-data数据
-app.use(multer({dest: '/tmp/server-upload'})); // for parsing multipart/form-data
 app.use(cookieParser('LDkdsSAlf4dFGS5'));
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
